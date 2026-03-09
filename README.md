@@ -12,5 +12,6 @@ Source code for the server emulator for clients 2002-2011
 ### Credits
 + pmein1 - Server developer and support
 + cystface-man - Server developer and support
-+ Dormine - Original python poc emulator code and updates
++ Dormine/YMGVE/Yngve (May he rest in peace) - Original python poc emulator code and updates
 + Other credits can be found in credits.txt
+
