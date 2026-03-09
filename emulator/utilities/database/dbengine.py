@@ -17,6 +17,10 @@ from sqlalchemy.sql import Delete, Insert, Select, Update
 from sqlalchemy_utils import create_database, database_exists
 from sqlalchemy.exc import SQLAlchemyError, IntegrityError  # Make sure to import this at the top
 
+import sqlparse.engine.grouping
+sqlparse.engine.grouping.MAX_GROUPING_DEPTH = None
+sqlparse.engine.grouping.MAX_GROUPING_TOKENS = None
+
 import globalvars
 from .base_dbdriver import Base, ExecutedSQLFile
 
@@ -181,9 +185,9 @@ class DatabaseDriver():
                 if filename == "ClientConfigurationDB.sql":
                     needs_reexecution = not self._table_exists_in_database("ClientConfigurationDB", "configurations")
                 elif filename == "ContentDescriptionDB.sql":
-                    needs_reexecution = not self._table_exists_in_database("ContentDescriptionDB", "filename")
+                    needs_reexecution = not self._table_exists_in_database("ContentDescriptionDB", "filenames")
                 elif filename == "BetaContentDescriptionDB.sql":
-                    needs_reexecution = not self._table_exists_in_database("BetaContentDescriptionDB", "filename")
+                    needs_reexecution = not self._table_exists_in_database("BetaContentDescriptionDB", "filenames")
                 elif filename == "ProductInformationDB.sql":
                     needs_reexecution = not self._table_exists_in_database("ProductInformationDB", "applications")
 
